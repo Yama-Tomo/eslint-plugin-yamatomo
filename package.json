@@ -1,0 +1,57 @@
+{
+  "name": "@yamatomo/eslint-plugin",
+  "version": "1.0.0",
+  "description": "eslint plugin",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "FORCE_COLOR=true run-p -l -c lint:*",
+    "lint:eslint": "eslint './**/*.{js,ts,tsx}' --format codeframe --color --max-warnings=0",
+    "lint:typing": "tsc --pretty",
+    "lint:format": "prettier -c './**/*.{js,ts,tsx}'",
+    "format": "prettier -w './**/*.{js,ts,tsx}'",
+    "test": "jest",
+    "build": "pnpm lint && rm -rf dist && node ./scripts/build.js",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yama-Tomo/eslint-plugin-yamatomo.git"
+  },
+  "author": "Yama-Tomo <yam4.tomo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yama-Tomo/eslint-plugin-yamatomo/issues"
+  },
+  "homepage": "https://github.com/Yama-Tomo/eslint-plugin-yamatomo#readme",
+  "devDependencies": {
+    "@swc/core": "^1.2.124",
+    "@swc/jest": "^0.2.15",
+    "@trivago/prettier-plugin-sort-imports": "^3.1.1",
+    "@types/minimatch": "^3.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/experimental-utils": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "esbuild": "^0.14.9",
+    "esbuild-node-externals": "^1.4.1",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-codeframe": "^7.32.1",
+    "jest": "^27.4.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "standard-version": "^9.3.2",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "minimatch": "^3.0.4"
+  },
+  "peerDependencies": {
+    "eslint": "^6.0.0 || ^7.0.0 || ^8.0.0"
+  },
+  "volta": {
+    "node": "16.13.1"
+  }
+}
