@@ -1,0 +1,17 @@
+name: test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+jobs:
+  lint:
+    uses: Yama-Tomo/eslint-plugin-yamatomo/.github/workflows/tasks.yml@main
+    with:
+      task: lint
+  test:
+    uses: Yama-Tomo/eslint-plugin-yamatomo/.github/workflows/tasks.yml@main
+    with:
+      task: test
