@@ -13,7 +13,8 @@
     "lint:format": "prettier -c './**/*.{js,ts,tsx}'",
     "format": "prettier -w './**/*.{js,ts,tsx}'",
     "test": "jest",
-    "build": "pnpm lint && rm -rf dist && node ./scripts/build.js",
+    "build": "rm -rf dist && node ./scripts/build.js",
+    "prepublishOnly": "pnpm lint && pnpm build",
     "release": "standard-version"
   },
   "repository": {

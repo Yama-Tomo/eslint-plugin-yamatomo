@@ -1,0 +1,27 @@
+name: tasks
+on:
+  workflow_call:
+    inputs:
+      task:
+        required: true
+        type: string
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ runner.os }}@${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            node_modules-${{ runner.os }}@
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - run: npm i -g pnpm
+      - run: pnpm i
+      - run: pnpm lint
+        if: ${{ inputs.task == 'lint' }}
+      - run: pnpm test
+        if: ${{ inputs.task == 'test' }}

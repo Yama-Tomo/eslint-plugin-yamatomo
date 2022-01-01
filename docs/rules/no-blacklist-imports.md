@@ -4,7 +4,7 @@
 
 This rule can be used to limit the modules to be imported.
 
-This is useful when practicing clean architecture.
+This is useful when practicing the `clean architecture`.
 
 ## How to Use
 
@@ -13,8 +13,8 @@ This is useful when practicing clean architecture.
   "@yamatomo/no-blacklist-imports": [
     "error",
     [
-      { "paths": ["**/src/entities/*.ts{,x}"], "blacklists": ["~/presenter/*", "~/usecases/*"] },
-      { "paths": ["**/src/usecases/*.ts{,x}"], "blacklists": ["~/presenter/*"] }
+      { "paths": ["**/src/entities/*.ts{,x}"], "blacklists": ["~/presenters/*", "~/usecases/*"] },
+      { "paths": ["**/src/usecases/*.ts{,x}"], "blacklists": ["~/presenters/*"] }
     ]
   ]
 }
